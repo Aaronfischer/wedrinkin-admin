@@ -1,4 +1,3 @@
-<div><h1>Welcome to Glimmer!</h1></div>
 <div class="ui inverted vertical left fixed bg-dark menu">
   <a class="item active" aria-current="page"><strong>wedrinkin</strong></a>
 </div>
@@ -6,19 +5,14 @@
   <div class="ui grid">
     <div class="equal width row row-padding">
       <div class="column">
+        <h1 class="ui header">Drinks</h1>
         {{#if drinks}}
-          <div class="ui cards">
-            {{#each drinks key="@index" as |drink|}}
-              <a class="ui card">
-                <div class="content">
-                  <img src="https://semantic-ui.com/images/avatar/large/steve.jpg" class="ui mini right floated image">
-                  <div class="header">{{drink.name}}</div>
-                  <div class="meta">night, happyhour, </div>
-                  <div class="description">{{drink.instructions}} </div>
-                </div>
-                <div class="extra content"><i aria-hidden="true" class="edit icon"></i>Edit</div>
-              </a>
-            {{/each}}
+          <div>
+            <div class="ui cards">
+              {{#each drinks key="@index" as |drink|}}
+                <Card @drink={{drink}} />
+              {{/each}}
+            </div>
           </div>
         {{/if}}
       </div>
