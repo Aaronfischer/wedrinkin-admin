@@ -1,0 +1,6 @@
+<div class="field {{if hasError "error"}}" error={{errors.img}}>
+  {{yield}}
+  {{#if hasError}}
+    <InlineError @text={{@error}} />
+  {{/if}}
+</div>
