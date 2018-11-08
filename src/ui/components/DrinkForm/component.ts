@@ -2,10 +2,9 @@ import Component, { tracked } from '@glimmer/component';
 
 export default class DrinkForm extends Component {
   // reset the local drink obj to come from the passed in argument
-  @tracked
-  private drink: {} = this.args['data'];
+  @tracked private drink: {} = this.args['data'];
 
-  @tracked private model:any = {};
+  @tracked private model: {} = {};
 
   constructor(options) {
     super(options);
@@ -27,7 +26,8 @@ export default class DrinkForm extends Component {
       this.drink = drink;
       this.model = this.model;
     }
-    console.log('didUpdate', this.drink);
+    console.log('didUpdate drink', this.drink);
+    console.log('didUpdate model', this.model);
   }
 
   onChange = e => {
