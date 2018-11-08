@@ -17,7 +17,7 @@
         {{else if (eq routeName "drinks")}}
           <DrinksBrowse />
         {{else if (eq routeName "drinksEdit")}}
-          <h1 class="ui header">Edit Drink</h1>
+          <DrinksEdit @params={{params}} @query={{query}} />
         {{else if (eq routeName "drinksAdd")}}
           <DrinksAdd />
         {{else}}

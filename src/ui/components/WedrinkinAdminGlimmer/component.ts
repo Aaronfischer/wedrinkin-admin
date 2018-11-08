@@ -7,6 +7,8 @@ const router = new Navigo(root, useHash);
 
 export default class WedrinkinAdminGlimmer extends Component {
   @tracked routeName: any;
+  @tracked params: any;
+  @tracked query: any;
 
   constructor(options) {
     super(options);
@@ -16,7 +18,7 @@ export default class WedrinkinAdminGlimmer extends Component {
         '/': () => { this.routeName = 'home'; },
         '/drinks': () => { this.routeName = 'drinks'; }
         '/drinks/add': () => { this.routeName = 'drinksAdd'; }
-        '/drinks/:id/edit': () => { this.routeName = 'drinksEdit'; }
+        '/drinks/:id/edit': (params, query) => { this.routeName = 'drinksEdit'; this.params = params; this.query = query; }
       })
       .resolve();
 
