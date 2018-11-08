@@ -1,0 +1,10 @@
+<h1 class="ui header">Drinks</h1>
+{{#if drinks}}
+  <div>
+    <div class="ui cards">
+      {{#each drinks key="@index" as |drink|}}
+        <Card @drink={{drink}} />
+      {{/each}}
+    </div>
+  </div>
+{{/if}}

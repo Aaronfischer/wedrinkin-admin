@@ -16,33 +16,29 @@ export default class DrinksAdd extends Component {
 
   validate = data => {
     const errors = {};
+    console.log('validate data', data);
     if (!data.name) errors.name = "Can't be blank";
     if (!data.instructions) errors.instructions = "Can't be blank";
     return errors;
   };
 
-  onChange = e => {
-    this.state = {
-      ...this.state,
-      [e.target.name]: e.target.value
-    };
-    return this.state;
-  };
-
-  async onSubmit(e) {
+  async onSubmit(data, e) {
+    console.log('drink', data, e);
     e.preventDefault();
-    const formErrors = this.validate(this.state);
+    const formErrors = this.validate(data);
     this.errors = formErrors;
+    console.log('ERRORS', this.errors);
     if (Object.keys(this.errors).length === 0) {
       // this.setState({ loading: true });
       let drink = {};
-      drink.drink = this.state;
+      drink.drink = data;
+      console.log('POST DRINK', drink);
       try {
         await fetch('//localhost:8080/api/drinks', {
           method: 'POST',
           credentials: 'same-origin',
           headers: {
-            "Content-Type": "application/json"
+            'Content-Type': 'application/json'
           },
           body: JSON.stringify(drink),
         }).then(data => {

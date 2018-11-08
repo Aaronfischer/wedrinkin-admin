@@ -15,16 +15,7 @@
         {{#if (eq routeName "home")}}
           <p class="ac">Please select an item from the sidebar.</p>
         {{else if (eq routeName "drinks")}}
-          <h1 class="ui header">Drinks</h1>
-          {{#if drinks}}
-            <div>
-              <div class="ui cards">
-                {{#each drinks key="@index" as |drink|}}
-                  <Card @drink={{drink}} />
-                {{/each}}
-              </div>
-            </div>
-          {{/if}}
+          <DrinksBrowse />
         {{else if (eq routeName "drinksEdit")}}
           <h1 class="ui header">Edit Drink</h1>
         {{else if (eq routeName "drinksAdd")}}
