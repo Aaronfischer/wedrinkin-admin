@@ -30,16 +30,11 @@
         <FormField @error={{@errors.temp}}>
           <label for="temp">Temperature</label>
           <FieldDropdown
-            @options={{tempOptions}}
+            @field="temp"
+            @name="Temperature"
+            @dropdownOptions={{tempOptions}}
+            onchange={{action onDropdownChange}}
           />
-          {{!-- <input
-            type="text"
-            id="img"
-            name="img"
-            placeholder="Icon Code"
-            value={{img}}
-            onchange={{action onChange}}
-          /> --}}
         </FormField>
 
         <FormField @error={{@errors.quote}}>

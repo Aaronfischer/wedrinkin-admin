@@ -37,6 +37,8 @@
   },
   "private": true,
   "dependencies": {
+    "broccoli-concat": "^3.7.3",
+    "broccoli-merge-trees": "^3.0.1",
     "navigo": "^7.1.2",
     "semantic-ui": "^2.4.2",
     "semantic-ui-css": "^2.4.1",

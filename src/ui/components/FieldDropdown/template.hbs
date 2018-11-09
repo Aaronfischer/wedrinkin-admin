@@ -1,10 +1,5 @@
-<div class="ui dropdown">
-  <input type="hidden" name="gender">
-  <i class="dropdown icon"></i>
-  <div class="default text">Gender</div>
-  <div class="menu">
-    {{#each @options key="@index" as |item|}}
-      <div class="item" data-value={{item.value}}>{{item.text}}</div>
-    {{/each}}
-  </div>
-</div>
+<select name={{@field}} multiple="" class="ui fluid dropdown">
+  {{#each @dropdownOptions key="@index" as |item|}}
+    <option value={{item.value}}>{{item.text}}</option>
+  {{/each}}
+</select>

@@ -80,7 +80,7 @@ export default class DrinkForm extends Component {
   }
 
   @tracked
-  get ingredients(): string {
+  get ingredients(): [] {
     return this.model.ingredients;
   }
 
@@ -95,12 +95,12 @@ export default class DrinkForm extends Component {
   }
 
   @tracked
-  get temp(): string {
+  get temp(): [] {
     return this.model.temp;
   }
 
   @tracked
-  get time(): string {
+  get time(): [] {
     return this.model.time;
   }
 
