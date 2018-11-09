@@ -38,6 +38,7 @@
   "private": true,
   "dependencies": {
     "navigo": "^7.1.2",
+    "semantic-ui": "^2.4.2",
     "semantic-ui-css": "^2.4.1",
     "whatwg-fetch": "^3.0.0"
   }

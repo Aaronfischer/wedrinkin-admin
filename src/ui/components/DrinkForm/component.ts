@@ -12,11 +12,26 @@ export default class DrinkForm extends Component {
     console.log('constructor this.drink', this.drink);
   };
 
+  tempOptions = [
+    { value: '-10', text: '-10' },
+    { value: '0', text: '0' },
+    { value: '10', text: '10' },
+    { value: '20', text: '20' },
+    { value: '30', text: '30' },
+    { value: '40', text: '40' },
+    { value: '50', text: '50' },
+    { value: '60', text: '60' },
+    { value: '70', text: '70' },
+    { value: '80', text: '80' },
+    { value: '90', text: '90' },
+    { value: '100', text: '100' },
+    { value: '110', text: '110' },
+  ];
+
   didUpdate() {
     console.log('DIDUPDATE');
     if (this.args['data'] !== this.drink) {
       const drink = this.args['data'];
-      console.log('DRINK', drink);
 
       this.model._id = drink._id;
       this.model.city = drink.city;
@@ -32,7 +47,6 @@ export default class DrinkForm extends Component {
       this.drink = drink;
       this.model = this.model;
     }
-    console.log('didUpdate drink', this.drink);
     console.log('didUpdate model', this.model);
   }
 
