@@ -40,17 +40,17 @@ export default class DrinksEdit extends Component {
     console.log('ERRORS', this.errors);
     if (Object.keys(this.errors).length === 0) {
       // this.setState({ loading: true });
-      let drink = {};
-      drink.drink = data;
-      console.log('POST DRINK', drink);
+      const id = data._id;
+      console.log('PATCH DRINK', data);
       try {
-        await fetch(`//localhost:8080/api/drinks/${drink._id}`, {
+        await fetch(`//localhost:8080/api/drinks/${id}`, {
           method: 'PATCH',
           credentials: 'same-origin',
           headers: {
+            'Accept': 'application/json',
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify(drink),
+          body: JSON.stringify({ drink: data }),
         }).then(data => {
           return data.json().then((json) => {
             if (data.status === 400) {

@@ -18,10 +18,16 @@ export default class DrinkForm extends Component {
       const drink = this.args['data'];
       console.log('DRINK', drink);
 
+      this.model._id = drink._id;
+      this.model.city = drink.city;
       this.model.name = drink.name;
       this.model.img = drink.img;
-      this.model.quote = drink.quote;
+      this.model.ingredients = drink.ingredients;
       this.model.instructions = drink.instructions;
+      this.model.quote = drink.quote;
+      this.model.temp = drink.temp;
+      this.model.time = drink.time;
+      this.model.wind = drink.wind;
 
       this.drink = drink;
       this.model = this.model;
@@ -40,6 +46,16 @@ export default class DrinkForm extends Component {
   };
 
   @tracked
+  get _id(): string {
+    return this.model._id;
+  }
+
+  @tracked
+  get city(): string {
+    return this.model.city;
+  }
+
+  @tracked
   get name(): string {
     return this.model.name;
   }
@@ -50,12 +66,32 @@ export default class DrinkForm extends Component {
   }
 
   @tracked
-  get quote(): string {
-    return this.model.quote;
+  get ingredients(): string {
+    return this.model.ingredients;
   }
 
   @tracked
   get instructions(): string {
     return this.model.instructions;
+  }
+
+  @tracked
+  get quote(): string {
+    return this.model.quote;
+  }
+
+  @tracked
+  get temp(): string {
+    return this.model.temp;
+  }
+
+  @tracked
+  get time(): string {
+    return this.model.time;
+  }
+
+  @tracked
+  get wind(): string {
+    return this.model.wind;
   }
 }
