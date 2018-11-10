@@ -18,4 +18,8 @@ export default class DrinksBrowse extends Component {
     this.drinks = json.drinks;
     console.log('this.drinks', this.drinks);
   }
+
+  didInsertElement() {
+    console.log('drinksBrowse');
+  }
 }

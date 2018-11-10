@@ -5,4 +5,8 @@ export default class FormField extends Component {
   get hasError() {
     return !!this.args.error;
   }
+
+  didInsertElement() {
+    console.log('FormField');
+  }
 }

@@ -11,12 +11,19 @@ class CustomApp extends GlimmerApp {
 
     let vendorScripts = new Concat('node_modules', {
       inputFiles: [
-        'semantic-ui/dist/semantic.min.js'
+        'jquery/dist/jquery.min.js'
       ],
-      outputFile: 'vendor.js',
+      outputFile: 'jquery.js',
     });
 
-    return new MergeTrees([originalTree, vendorScripts], { overwrite: true });
+    let semanticScript = new Concat('public', {
+      inputFiles: [
+        'vendor/semantic.min.js'
+      ],
+      outputFile: 'semantic.js',
+    });
+
+    return new MergeTrees([originalTree, semanticScript, vendorScripts], { overwrite: true });
   }
 }
 

@@ -13,15 +13,19 @@ export default class WedrinkinAdminGlimmer extends Component {
   constructor(options) {
     super(options);
 
+    // causes issue with didInsertElement
     router
       .on({
         '/': () => { this.routeName = 'home'; },
-        '/drinks': () => { this.routeName = 'drinks'; }
-        '/drinks/add': () => { this.routeName = 'drinksAdd'; }
+        '/drinks': () => { this.routeName = 'drinks'; },
+        '/drinks/add': () => { this.routeName = 'drinksAdd'; },
         '/drinks/:id/edit': (params, query) => { this.routeName = 'drinksEdit'; this.params = params; this.query = query; }
-      })
-      .resolve();
+      }).resolve();
 
     console.log('routeName', this.routeName);
+  }
+
+  didInsertElement() {
+    console.log('adminglimmer');
   }
 }

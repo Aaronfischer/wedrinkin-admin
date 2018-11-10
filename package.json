@@ -1,6 +1,6 @@
 {
   "name": "wedrinkin-admin-glimmer",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A brand new Glimmer app.",
   "directories": {
     "doc": "doc",
@@ -13,16 +13,16 @@
     "lint:ts": "tslint -c tslint.json 'src/**/*.ts' -t codeFrame"
   },
   "devDependencies": {
-    "@glimmer/application": "^0.12.0",
-    "@glimmer/application-pipeline": "^0.10.0",
-    "@glimmer/blueprint": "~0.12.0",
-    "@glimmer/component": "^0.12.0",
+    "@glimmer/application": "^0.13.0",
+    "@glimmer/application-pipeline": "^0.14.0",
+    "@glimmer/blueprint": "~0.13.0",
+    "@glimmer/component": "^0.13.0",
     "@glimmer/inline-precompile": "^1.0.0",
-    "@glimmer/resolver": "^0.4.1",
+    "@glimmer/resolver": "^0.4.3",
     "@glimmer/test-helpers": "^0.30.3",
     "@types/qunit": "^2.0.31",
     "broccoli-asset-rev": "^2.5.0",
-    "ember-cli": "^2.14.0",
+    "ember-cli": "^3.5.0",
     "ember-cli-dependency-checker": "^2.0.1",
     "ember-cli-inject-live-reload": "^1.6.1",
     "ember-cli-sass": "^8.0.1",
@@ -39,8 +39,8 @@
   "dependencies": {
     "broccoli-concat": "^3.7.3",
     "broccoli-merge-trees": "^3.0.1",
+    "jquery": "3.3.1",
     "navigo": "^7.1.2",
-    "semantic-ui": "^2.4.2",
     "semantic-ui-css": "^2.4.1",
     "whatwg-fetch": "^3.0.0"
   }

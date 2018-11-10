@@ -1,9 +1,9 @@
-import Component, { tracked } from '@glimmer/component';
+import Component from '@glimmer/component';
 
 export default class FieldDropdown extends Component {
   dropdownOptions:any = [];
 
   didInsertElement() {
-    console.log('THIS', this.element);
+    $(this.element).dropdown();
   }
 }

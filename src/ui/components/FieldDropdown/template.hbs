@@ -1,5 +1,12 @@
-<select name={{@field}} multiple="" class="ui fluid dropdown">
+<select id="dropdown" name={{@field}} multiple="" class="ui fluid dropdown" onchange={{action @onchange}}>
   {{#each @dropdownOptions key="@index" as |item|}}
-    <option value={{item.value}}>{{item.text}}</option>
+    {{!-- unable to set @value conditional within helper... bug? --}}
+    {{#if @value}}
+      {{#if (in-array item.value @value)}}
+        <option value={{item.value}} selected>{{item.text}}</option>
+      {{else}}
+        <option value={{item.value}}>{{item.text}}</option>
+      {{/if}}
+    {{/if}}
   {{/each}}
 </select>

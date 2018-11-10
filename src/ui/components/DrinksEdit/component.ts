@@ -64,4 +64,8 @@ export default class DrinksEdit extends Component {
       }
     }
   }
+
+  didInsertElement() {
+    console.log('DrinksEdit');
+  }
 }

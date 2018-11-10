@@ -59,6 +59,22 @@ export default class DrinkForm extends Component {
     return this.model;
   };
 
+  onDropdownChange = e => {
+    const options = e.target.options;
+    let value = [];
+    for (let i = 0, l = options.length; i < l; i++) {
+      if (options[i].selected) {
+        value.push(options[i].value);
+      }
+    }
+    this.model = {
+      ...this.model,
+      [e.target.name]: value
+    };
+    console.log('onChange', this.model);
+    return this.model;
+  };
+
   @tracked
   get _id(): string {
     return this.model._id;
@@ -96,6 +112,7 @@ export default class DrinkForm extends Component {
 
   @tracked
   get temp(): [] {
+    console.log('TEMP', this.model.temp);
     return this.model.temp;
   }
 
@@ -107,5 +124,9 @@ export default class DrinkForm extends Component {
   @tracked
   get wind(): string {
     return this.model.wind;
+  }
+
+  didInsertElement() {
+    console.log('drinkForm');
   }
 }

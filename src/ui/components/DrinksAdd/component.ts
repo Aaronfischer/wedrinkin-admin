@@ -14,6 +14,10 @@ export default class DrinksAdd extends Component {
     instructions: null,
   };
 
+  didInsertElement() {
+    console.log('drinkAdd');
+  }
+
   validate = data => {
     const errors = {};
     console.log('validate data', data);

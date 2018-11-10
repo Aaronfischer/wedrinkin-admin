@@ -33,8 +33,8 @@
             @field="temp"
             @name="Temperature"
             @dropdownOptions={{tempOptions}}
-            onchange={{action onDropdownChange}}
-          />
+            @value={{temp}}
+            @onchange={{action onDropdownChange}} />
         </FormField>
 
         <FormField @error={{@errors.quote}}>
