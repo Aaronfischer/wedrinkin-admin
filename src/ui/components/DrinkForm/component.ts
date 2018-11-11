@@ -28,6 +28,13 @@ export default class DrinkForm extends Component {
     { value: '110', text: '110' },
   ];
 
+  timeOptions = [
+    { value: 'morning', text: 'Morning' },
+    { value: 'noon', text: 'Noon' },
+    { value: 'happyhour', text: 'Happy Hour' },
+    { value: 'night', text: 'Night' },
+  ];
+
   didUpdate() {
     console.log('DIDUPDATE');
     if (this.args['data'] !== this.drink) {
@@ -75,6 +82,37 @@ export default class DrinkForm extends Component {
     return this.model;
   };
 
+  onIngredientsChange = (field, index, e) => {
+    // deep copy this.model
+    let modelCopy = JSON.parse(JSON.stringify(this.model));
+    // notify the value on the array object directly
+    modelCopy[field][index][e.target.name] = e.target.value;
+    this.model = modelCopy;
+    console.log('onIngredientsChange', e, this.model);
+    return this.model;
+  };
+
+  onRemoveItem = (field, index) => {
+    this.model = {
+      ...this.model,
+      ingredients: this.model[field].filter((_, i) => i !== index)
+    };
+    console.log('onRemoveItem', field, index, this.model);
+    return this.model;
+  };
+
+  onAddItem() {
+    let item = {
+      amount: '',
+      item: ''
+    };
+    this.model = {
+      ...this.model,
+      ingredients: [...this.model.ingredients, item]
+    };
+    console.log('onAddItem', this.model);
+  }
+
   @tracked
   get _id(): string {
     return this.model._id;
@@ -112,7 +150,6 @@ export default class DrinkForm extends Component {
 
   @tracked
   get temp(): [] {
-    console.log('TEMP', this.model.temp);
     return this.model.temp;
   }
 

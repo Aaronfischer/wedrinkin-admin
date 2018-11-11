@@ -1,0 +1,40 @@
+<div class="ui form small">
+  {{#each @data key="@index" as |item index|}}
+    <div class="equal width fields ingredient-item">
+      <FormField>
+        <label for="item">Item</label>
+        <input
+          type="text"
+          name="item"
+          placeholder="Item"
+          value={{item.item}}
+          onchange={{action @onchange @field index}}
+        />
+      </FormField>
+      <FormField>
+        <label for="amount">Amount</label>
+        <input
+          type="text"
+          name="amount"
+          placeholder="Amount"
+          value={{item.amount}}
+          onchange={{action @onchange @field index}}
+        />
+      </FormField>
+      <button
+        type="button"
+        class="ui icon button"
+        role="button"
+        onclick={{action @onremove @field index}}>
+          <i aria-hidden="true" class="close icon"></i>
+      </button>
+    </div>
+  {{/each}}
+  <button
+    type="button"
+    class="ui small button"
+    role="button"
+    onclick={{action @onadd}}>
+      Add Ingredient
+  </button>
+</div>

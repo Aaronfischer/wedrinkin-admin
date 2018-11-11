@@ -37,6 +37,27 @@
             @onchange={{action onDropdownChange}} />
         </FormField>
 
+        <FormField @error={{@errors.time}}>
+          <label for="time">Time</label>
+          <FieldDropdown
+            @field="time"
+            @name="Time"
+            @dropdownOptions={{timeOptions}}
+            @value={{time}}
+            @onchange={{action onDropdownChange}} />
+        </FormField>
+
+        <FormField @error={{@errors.ingredients}}>
+          <label for="ingredients">Ingredients</label>
+          <FieldIngredients
+            @field="ingredients"
+            @name="Ingredients"
+            @data={{ingredients}}
+            @onchange={{action onIngredientsChange}}
+            @onremove={{action onRemoveItem}}
+            @onadd= {{action onAddItem}} />
+        </FormField>
+
         <FormField @error={{@errors.quote}}>
           <label for="quote">Quote</label>
           <input
