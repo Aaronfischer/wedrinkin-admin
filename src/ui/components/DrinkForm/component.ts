@@ -106,6 +106,9 @@ export default class DrinkForm extends Component {
       amount: '',
       item: ''
     };
+    if (!this.model.ingredients) {
+      this.model.ingredients = [];
+    }
     this.model = {
       ...this.model,
       ingredients: [...this.model.ingredients, item]
