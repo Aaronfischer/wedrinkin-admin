@@ -21,20 +21,18 @@
           onchange={{action @onchange @field index}}
         />
       </FormField>
-      <button
-        type="button"
-        class="ui icon button"
-        role="button"
-        onclick={{action @onremove @field index}}>
+      <ConfirmationAction
+        @class="ui icon button"
+        @passAction={{action @passAction @field index}}>
           <i aria-hidden="true" class="close icon"></i>
-      </button>
+      </ConfirmationAction>
     </div>
   {{/each}}
   <button
     type="button"
     class="ui small button"
     role="button"
-    onclick={{action @onadd}}>
+    onclick={{action @onadd @field}}>
       Add Ingredient
   </button>
 </div>

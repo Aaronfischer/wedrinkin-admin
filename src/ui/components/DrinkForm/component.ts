@@ -3,6 +3,7 @@ import Component, { tracked } from '@glimmer/component';
 export default class DrinkForm extends Component {
   // reset the local drink obj to come from the passed in argument
   @tracked private drink: {} = this.args['data'];
+  @tracked isEdit: boolean = false;
 
   @tracked private model: {} = {};
 
@@ -101,17 +102,17 @@ export default class DrinkForm extends Component {
     return this.model;
   };
 
-  onAddItem() {
+  onAddItem(field) {
     let item = {
       amount: '',
       item: ''
     };
-    if (!this.model.ingredients) {
-      this.model.ingredients = [];
+    if (!this.model[field]) {
+      this.model[field] = [];
     }
     this.model = {
       ...this.model,
-      ingredients: [...this.model.ingredients, item]
+      ingredients: [...this.model[field], item]
     };
     console.log('onAddItem', this.model);
   }

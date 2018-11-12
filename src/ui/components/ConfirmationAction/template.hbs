@@ -1,0 +1,16 @@
+<div class="confirm-wrapper">
+  {{#if toConfirm}}
+    <span class="tooltip tooltip-confirm small">
+      Are you sure? <br>
+      <a onclick={{action passAction}} class="link text-uppercase">Yes</a>
+      <a onclick={{action confirmAction}} class="btn-cancel link text-uppercase">No</a>
+    </span>
+  {{/if}}
+  <button
+    type="button"
+    class={{@class}}
+    role="button"
+    onclick={{action confirmAction}}>
+      {{yield}}
+  </button>
+</div>

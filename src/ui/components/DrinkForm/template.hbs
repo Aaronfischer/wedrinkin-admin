@@ -55,7 +55,8 @@
             @data={{ingredients}}
             @onchange={{action onIngredientsChange}}
             @onremove={{action onRemoveItem}}
-            @onadd= {{action onAddItem}} />
+            @onadd= {{action onAddItem}}
+            @passAction={{action onRemoveItem}} />
         </FormField>
 
         <FormField @error={{@errors.quote}}>
@@ -90,6 +91,17 @@
           <button class="ui primary button" role="button">Save</button>
         </div>
       </div>
+      {{#if @isEdit}}
+        <div class="column">
+          <div class="field">
+            <ConfirmationAction
+              @class="ui button"
+              @passAction={{action @delete model}}>
+                Delete
+            </ConfirmationAction>
+          </div>
+        </div>
+      {{/if}}
     </div>
 
   </div>

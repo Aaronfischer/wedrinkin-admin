@@ -3,7 +3,7 @@ import Navigo from 'navigo';
 
 const root = null;
 const useHash = true;
-const router = new Navigo(root, useHash);
+export const router = new Navigo(root, useHash);
 
 export default class WedrinkinAdminGlimmer extends Component {
   @tracked routeName: any;

@@ -1,4 +1,5 @@
 import Component, { tracked } from '@glimmer/component';
+import { router } from '../WedrinkinAdminGlimmer/component';
 
 export default class DrinksEdit extends Component {
   @tracked errors = {};
@@ -11,6 +12,8 @@ export default class DrinksEdit extends Component {
 
     this.loadDrink(this.args.params.id);
     console.log('EDIT DRINK', this.state);
+
+    console.log('router', router);
   }
 
   async loadDrink(id) {
@@ -62,6 +65,36 @@ export default class DrinksEdit extends Component {
       } catch(error) {
         this.errors = error.errors;
       }
+    }
+  }
+
+  async onDelete(data) {
+    console.log('drink', data);
+    // e.preventDefault();
+    // this.setState({ loading: true });
+    const id = data._id;
+    console.log('DELETE DRINK', data);
+    try {
+      await fetch(`//localhost:8080/api/drinks/${id}`, {
+        method: 'DELETE',
+        credentials: 'same-origin',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ drink: data }),
+      }).then(data => {
+        if (data.status === 200) {
+          return router.navigate('/drinks');
+        }
+        return data.json().then((json) => {
+          if (data.status === 400) {
+            throw json;
+          }
+        });
+      }, (error) => { throw error; });
+    } catch(error) {
+      this.errors = error.errors;
     }
   }
 
