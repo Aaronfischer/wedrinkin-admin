@@ -1,6 +1,12 @@
 <div class="ui container">
   <h1 class="ui header">Add Drink</h1>
   <div class="ui segment">
-    <DrinkForm @submit={{action onSubmit}} @data={{state}} @errors={{errors}} />
+    <DrinkForm
+      @submit={{action onSubmit}}
+      @data={{state}}
+      @errors={{errors}}
+      @isLoading={{isLoading}}
+      @isSuccess={{isSuccess}}
+      @isFailure={{isFailure}} />
   </div>
 </div>

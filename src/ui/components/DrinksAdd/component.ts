@@ -2,6 +2,9 @@ import Component, { tracked } from '@glimmer/component';
 
 export default class DrinksAdd extends Component {
   @tracked errors = {};
+  @tracked isSuccess: boolean = false;
+  @tracked isFailure: boolean = false;
+  @tracked isLoading: boolean = false;
   @tracked state = {
     name: null,
     img: null,
@@ -21,12 +24,18 @@ export default class DrinksAdd extends Component {
     return errors;
   };
 
+  reset() {
+    this.isSuccess = false;
+    this.isFailure = false;
+    this.isLoading = false;
+  }
+
   async onSubmit(data, e) {
     e.preventDefault();
     const formErrors = this.validate(data);
     this.errors = formErrors;
     if (Object.keys(this.errors).length === 0) {
-      // this.setState({ loading: true });
+      this.isLoading = true;
       try {
         await fetch('//localhost:8080/api/drinks', {
           method: 'POST',
@@ -40,10 +49,14 @@ export default class DrinksAdd extends Component {
             if (data.status === 400) {
               throw json;
             }
+            this.reset();
+            this.isSuccess = true;
             return json;
           });
         }, (error) => { throw error; });
       } catch(error) {
+        this.reset();
+        this.isFailure = true;
         this.errors = error.errors;
       }
     }

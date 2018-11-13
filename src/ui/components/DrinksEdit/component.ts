@@ -4,6 +4,9 @@ import { router } from '../WedrinkinAdminGlimmer/component';
 export default class DrinksEdit extends Component {
   @tracked errors = {};
   @tracked state = {};
+  @tracked isSuccess: boolean = false;
+  @tracked isFailure: boolean = false;
+  @tracked isLoading: boolean = false;
 
   constructor(options) {
     super(options);
@@ -27,12 +30,18 @@ export default class DrinksEdit extends Component {
     return errors;
   };
 
+  reset() {
+    this.isSuccess = false;
+    this.isFailure = false;
+    this.isLoading = false;
+  }
+
   async onSubmit(data, e) {
     e.preventDefault();
     const formErrors = this.validate(data);
     this.errors = formErrors;
     if (Object.keys(this.errors).length === 0) {
-      // this.setState({ loading: true });
+      this.isLoading = true;
       const id = data._id;
       try {
         await fetch(`//localhost:8080/api/drinks/${id}`, {
@@ -48,18 +57,20 @@ export default class DrinksEdit extends Component {
             if (data.status === 400) {
               throw json;
             }
+            this.reset();
+            this.isSuccess = true;
             return json;
           });
         }, (error) => { throw error; });
       } catch(error) {
+        this.reset();
+        this.isFailure = true;
         this.errors = error.errors;
       }
     }
   }
 
   async onDelete(data) {
-    // e.preventDefault();
-    // this.setState({ loading: true });
     const id = data._id;
     try {
       await fetch(`//localhost:8080/api/drinks/${id}`, {
@@ -81,6 +92,8 @@ export default class DrinksEdit extends Component {
         });
       }, (error) => { throw error; });
     } catch(error) {
+      this.reset();
+      this.isFailure = true;
       this.errors = error.errors;
     }
   }

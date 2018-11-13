@@ -1,4 +1,20 @@
 <form class="ui form" onsubmit={{action @submit model}}>
+  {{#if @isSuccess}}
+    <div class="ui positive message">
+      <div class="header">
+        Saved!
+      </div>
+      <p>Your drink has been saved!</p>
+    </div>
+  {{/if}}
+  {{#if @isFailure}}
+    <div class="ui negative message">
+      <div class="header">
+        Error!
+      </div>
+      <p>There was an issue, please see below.</p>
+    </div>
+  {{/if}}
   <div fluid="true" class="ui stackable two column grid">
     <div class="row">
       <div class="column">
@@ -88,7 +104,7 @@
     <div class="row">
       <div class="column">
         <div class="field">
-          <button class="ui primary button" role="button">Save</button>
+          <button class="ui primary button {{if @isLoading "loading"}}" role="button">Save</button>
         </div>
       </div>
       {{#if @isEdit}}
