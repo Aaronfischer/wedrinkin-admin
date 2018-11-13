@@ -1,4 +1,5 @@
 import Component, { tracked } from '@glimmer/component';
+import { router } from '../WedrinkinAdminGlimmer/component';
 
 export default class DrinksAdd extends Component {
   @tracked errors = {};
@@ -18,6 +19,7 @@ export default class DrinksAdd extends Component {
   };
 
   validate = data => {
+    this.reset();
     const errors = {};
     if (!data.name) errors.name = "Can't be blank";
     if (!data.instructions) errors.instructions = "Can't be blank";
@@ -51,7 +53,9 @@ export default class DrinksAdd extends Component {
             }
             this.reset();
             this.isSuccess = true;
-            return json;
+            router.pause();
+            router.navigate(`/drinks/${json.drinks._id}/edit`);
+            return router.resume();
           });
         }, (error) => { throw error; });
       } catch(error) {
