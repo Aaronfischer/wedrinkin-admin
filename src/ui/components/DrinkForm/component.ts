@@ -7,12 +7,6 @@ export default class DrinkForm extends Component {
 
   @tracked private model: {} = {};
 
-  constructor(options) {
-    super(options);
-    console.log('constructor this.args.data', this.args['data']);
-    console.log('constructor this.drink', this.drink);
-  };
-
   tempOptions = [
     { value: '-10', text: '-10' },
     { value: '0', text: '0' },
@@ -37,7 +31,6 @@ export default class DrinkForm extends Component {
   ];
 
   didUpdate() {
-    console.log('DIDUPDATE');
     if (this.args['data'] !== this.drink) {
       const drink = this.args['data'];
 
@@ -63,7 +56,6 @@ export default class DrinkForm extends Component {
       ...this.model,
       [e.target.name]: e.target.value
     };
-    console.log('onChange', this.model);
     return this.model;
   };
 
@@ -79,7 +71,6 @@ export default class DrinkForm extends Component {
       ...this.model,
       [e.target.name]: value
     };
-    console.log('onChange', this.model);
     return this.model;
   };
 
@@ -89,7 +80,6 @@ export default class DrinkForm extends Component {
     // notify the value on the array object directly
     modelCopy[field][index][e.target.name] = e.target.value;
     this.model = modelCopy;
-    console.log('onIngredientsChange', e, this.model);
     return this.model;
   };
 
@@ -98,7 +88,6 @@ export default class DrinkForm extends Component {
       ...this.model,
       ingredients: this.model[field].filter((_, i) => i !== index)
     };
-    console.log('onRemoveItem', field, index, this.model);
     return this.model;
   };
 
@@ -114,7 +103,6 @@ export default class DrinkForm extends Component {
       ...this.model,
       ingredients: [...this.model[field], item]
     };
-    console.log('onAddItem', this.model);
   }
 
   @tracked
@@ -165,9 +153,5 @@ export default class DrinkForm extends Component {
   @tracked
   get wind(): string {
     return this.model.wind;
-  }
-
-  didInsertElement() {
-    console.log('drinkForm');
   }
 }

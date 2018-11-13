@@ -24,8 +24,4 @@ export default class WedrinkinAdminGlimmer extends Component {
 
     console.log('routeName', this.routeName);
   }
-
-  didInsertElement() {
-    console.log('adminglimmer');
-  }
 }

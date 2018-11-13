@@ -7,7 +7,6 @@ export default class DrinksBrowse extends Component {
     super(options);
 
     this.loadDrinks();
-    console.log('drinks', this.drinks);
   }
 
   async loadDrinks() {
@@ -17,9 +16,5 @@ export default class DrinksBrowse extends Component {
     let json = await request.json();
     this.drinks = json.drinks;
     console.log('this.drinks', this.drinks);
-  }
-
-  didInsertElement() {
-    console.log('drinksBrowse');
   }
 }
