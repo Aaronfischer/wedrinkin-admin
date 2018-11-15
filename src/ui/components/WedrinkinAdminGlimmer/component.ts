@@ -17,6 +17,7 @@ export default class WedrinkinAdminGlimmer extends Component {
     router
       .on({
         '/': () => { this.routeName = 'home'; },
+        '/login': () => { this.routeName = 'login'; },
         '/drinks': () => { this.routeName = 'drinks'; },
         '/drinks/add': () => { this.routeName = 'drinksAdd'; },
         '/drinks/:id/edit': (params, query) => { this.routeName = 'drinksEdit'; this.params = params; this.query = query; }

@@ -1,0 +1,19 @@
+<div class="login-page">
+  <div class="ui center aligned middle aligned grid" style="height: 100%;">
+    <div class="column" style="max-width: 450px;">
+      <h2 class="ui center aligned header">
+        <img src="/logo.png" class="ui image">
+        Login
+      </h2>
+      <LoginForm
+        @submit={{action onSubmit}}
+        @errors={{errors}}
+        @isLoading={{isLoading}}
+        @isSuccess={{isSuccess}}
+        @isFailure={{isFailure}} />
+      <div class="ui message">New to us? <a href="/signup">Sign Up</a> <br>
+    </div>
+    <a href="/forgot-password">Forgot Password?</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<form class="ui form {{if @isLoading "loading"}}" onsubmit={{action @submit model}}>
+  {{#if @isSuccess}}
+    <div class="ui positive message">
+      <div class="header">
+        Saved!
+      </div>
+      <p>Your drink has been saved!</p>
+    </div>
+  {{/if}}
+  {{#if @isFailure}}
+    <div class="ui negative message">
+      <div class="header">
+        Error!
+      </div>
+      <p>There was an issue, please see below.</p>
+    </div>
+  {{/if}}
+  <div fluid="true" class="ui segment">
+    <FormField @error={{@errors.email}}>
+      <input
+        fluid="true"
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Email"
+        value={{email}}
+        onchange={{action onChange}}
+      />
+    </FormField>
+
+    <FormField @error={{@errors.password}}>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Password"
+        value={{password}}
+        onchange={{action onChange}}
+      />
+    </FormField>
+
+    <div class="field">
+      <button class="ui primary button {{if @isLoading "loading"}}" role="button">Login</button>
+    </div>
+  </div>
+</form>

@@ -1,29 +1,33 @@
-<div class="ui inverted vertical left fixed bg-dark menu">
-  <a class="item active" aria-current="page"><strong>wedrinkin</strong></a>
-  <div class="item">
-    <div class="header">Drinks</div>
-    <div class="menu">
-      <a class="item" href="#/drinks" data-navigo>Browse</a>
-      <a class="item" href="#/drinks/add" data-navigo>Add</a>
-    </div>
-  </div>
-</div>
-<div class="main-wrapper ui-push-left">
-  <div class="ui grid">
-    <div class="equal width row row-padding">
-      <div class="column">
-        {{#if (eq routeName "home")}}
-          <p class="ac">Please select an item from the sidebar.</p>
-        {{else if (eq routeName "drinks")}}
-          <DrinksBrowse />
-        {{else if (eq routeName "drinksEdit")}}
-          <DrinksEdit @params={{params}} @query={{query}} />
-        {{else if (eq routeName "drinksAdd")}}
-          <DrinksAdd />
-        {{else}}
-          <h1 class="ui header">Not Found</h1>
-        {{/if}}
+{{#if (eq routeName "login")}}
+  <Login />
+{{else}}
+  <div class="ui inverted vertical left fixed bg-dark menu">
+    <a class="item active" aria-current="page"><strong>wedrinkin</strong></a>
+    <div class="item">
+      <div class="header">Drinks</div>
+      <div class="menu">
+        <a class="item" href="#/drinks" data-navigo>Browse</a>
+        <a class="item" href="#/drinks/add" data-navigo>Add</a>
       </div>
     </div>
   </div>
-</div>
+  <div class="main-wrapper ui-push-left">
+    <div class="ui grid">
+      <div class="equal width row row-padding">
+        <div class="column">
+          {{#if (eq routeName "home")}}
+            <p class="ac">Please select an item from the sidebar.</p>
+          {{else if (eq routeName "drinks")}}
+            <DrinksBrowse />
+          {{else if (eq routeName "drinksEdit")}}
+            <DrinksEdit @params={{params}} @query={{query}} />
+          {{else if (eq routeName "drinksAdd")}}
+            <DrinksAdd />
+          {{else}}
+            <h1 class="ui header">Not Found</h1>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  </div>
+{{/if}}
