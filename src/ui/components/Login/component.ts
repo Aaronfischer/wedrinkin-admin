@@ -1,5 +1,6 @@
 import Component, { tracked } from '@glimmer/component';
 import { router } from '../WedrinkinAdminGlimmer/component';
+import { setAuthorization } from '../../../utils/fetch-wrapper';
 
 export default class Login extends Component {
   @tracked isSuccess: boolean = false;
@@ -32,10 +33,10 @@ export default class Login extends Component {
               throw json;
             }
             this.reset();
-            this.isSuccess = true;
-            router.pause();
-            router.navigate(`/drinks`);
-            return router.resume();
+            console.log('JSON', json.user);
+            setAuthorization(json.user.token);
+            // localStorage.wedrinkinJWT = json.token;
+            return router.navigate(`/drinks`);
           });
         }, (error) => { throw error; });
       } catch(error) {

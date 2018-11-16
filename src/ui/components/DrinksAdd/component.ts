@@ -1,5 +1,6 @@
 import Component, { tracked } from '@glimmer/component';
 import { router } from '../WedrinkinAdminGlimmer/component';
+import { fetchWrapper } from '../../../utils/fetch-wrapper';
 
 export default class DrinksAdd extends Component {
   @tracked errors = {};
@@ -39,7 +40,7 @@ export default class DrinksAdd extends Component {
     if (Object.keys(this.errors).length === 0) {
       this.isLoading = true;
       try {
-        await fetch('//localhost:8080/api/drinks', {
+        await fetchWrapper('//localhost:8080/api/drinks', {
           method: 'POST',
           credentials: 'same-origin',
           headers: {

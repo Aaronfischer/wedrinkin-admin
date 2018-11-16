@@ -3,7 +3,6 @@ import Component, { tracked } from '@glimmer/component';
 export default class LoginForm extends Component {
   @tracked private model: {} = {};
 
-
   onChange = e => {
     this.model = {
       ...this.model,

@@ -1,4 +1,5 @@
 import Component, { tracked } from '@glimmer/component';
+import { fetchWrapper } from '../../../utils/fetch-wrapper';
 
 export default class DrinksBrowse extends Component {
   @tracked drinks = [];
@@ -10,7 +11,7 @@ export default class DrinksBrowse extends Component {
   }
 
   async loadDrinks() {
-    let request = await fetch('//localhost:8080/api/drinks', {
+    let request = await fetchWrapper('//localhost:8080/api/drinks', {
       credentials: 'same-origin',
     });
     let json = await request.json();

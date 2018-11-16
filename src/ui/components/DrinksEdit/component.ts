@@ -1,5 +1,6 @@
 import Component, { tracked } from '@glimmer/component';
 import { router } from '../WedrinkinAdminGlimmer/component';
+import { fetchWrapper } from '../../../utils/fetch-wrapper';
 
 export default class DrinksEdit extends Component {
   @tracked errors = {};
@@ -15,7 +16,7 @@ export default class DrinksEdit extends Component {
   }
 
   async loadDrink(id) {
-    let request = await fetch(`//localhost:8080/api/drinks/${id}`, {
+    let request = await fetchWrapper(`//localhost:8080/api/drinks/${id}`, {
       credentials: 'same-origin',
     });
     let json = await request.json();
@@ -44,7 +45,7 @@ export default class DrinksEdit extends Component {
       this.isLoading = true;
       const id = data._id;
       try {
-        await fetch(`//localhost:8080/api/drinks/${id}`, {
+        await fetchWrapper(`//localhost:8080/api/drinks/${id}`, {
           method: 'PATCH',
           credentials: 'same-origin',
           headers: {
@@ -73,7 +74,7 @@ export default class DrinksEdit extends Component {
   async onDelete(data) {
     const id = data._id;
     try {
-      await fetch(`//localhost:8080/api/drinks/${id}`, {
+      await fetchWrapper(`//localhost:8080/api/drinks/${id}`, {
         method: 'DELETE',
         credentials: 'same-origin',
         headers: {
