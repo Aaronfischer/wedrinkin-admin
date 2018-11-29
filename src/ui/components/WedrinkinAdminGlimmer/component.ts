@@ -29,7 +29,7 @@ export default class WedrinkinAdminGlimmer extends Component {
     console.log('routeName', this.routeName);
 
     if (localStorage.getItem('wedrinkinUser')) {
-      this.user = JSON.parse(localStorage.getItem('wedrinkinUser'));
+      this.setUser();
       console.log('this.user', this.user);
     }
   }
@@ -48,6 +48,16 @@ export default class WedrinkinAdminGlimmer extends Component {
     console.log('e', e);
     setAuthorization();
     router.navigate(`/login`);
+  }
+
+  setupUser(user) {
+    console.log('setupUser', user);
+    setAuthorization(user);
+    this.setUser();
+  }
+
+  setUser() {
+    this.user = JSON.parse(localStorage.getItem('wedrinkinUser'));
   }
 
   // @tracked

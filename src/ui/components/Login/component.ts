@@ -1,6 +1,5 @@
 import Component, { tracked } from '@glimmer/component';
 import { router } from '../WedrinkinAdminGlimmer/component';
-import { setAuthorization } from '../../../utils/fetch-wrapper';
 
 export default class Login extends Component {
   @tracked isSuccess: boolean = false;
@@ -33,8 +32,9 @@ export default class Login extends Component {
               throw json;
             }
             this.reset();
+            console.log('this.args', this.args);
             console.log('JSON', json.user);
-            setAuthorization(json.user);
+            this.args.setupUser(json.user);
             return router.navigate(`/drinks`);
           });
         }, (error) => { throw error; });
