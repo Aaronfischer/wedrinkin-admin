@@ -22,27 +22,26 @@
     "@glimmer/test-helpers": "^0.30.3",
     "@types/qunit": "^2.0.31",
     "broccoli-asset-rev": "^2.5.0",
+    "broccoli-concat": "^3.7.3",
+    "broccoli-funnel": "^2.0.1",
+    "broccoli-merge-trees": "^3.0.1",
     "ember-cli": "^3.5.0",
     "ember-cli-dependency-checker": "^2.0.1",
     "ember-cli-inject-live-reload": "^1.6.1",
     "ember-cli-sass": "^8.0.1",
     "ember-cli-tslint": "^0.1.3",
     "ember-cli-uglify": "^2.0.0-beta.1",
+    "gravatar-url": "^2.0.0",
+    "jquery": "3.3.1",
+    "navigo": "^7.1.2",
     "qunitjs": "^2.3.3",
     "sass": "^1.14.3",
-    "typescript": "~2.6.0"
+    "semantic-ui-css": "^2.4.1",
+    "typescript": "~2.6.0",
+    "whatwg-fetch": "^3.0.0"
   },
   "engines": {
     "node": ">= 4.0"
   },
-  "private": true,
-  "dependencies": {
-    "broccoli-concat": "^3.7.3",
-    "broccoli-funnel": "^2.0.1",
-    "broccoli-merge-trees": "^3.0.1",
-    "jquery": "3.3.1",
-    "navigo": "^7.1.2",
-    "semantic-ui-css": "^2.4.1",
-    "whatwg-fetch": "^3.0.0"
-  }
+  "private": true
 }

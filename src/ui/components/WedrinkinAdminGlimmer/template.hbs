@@ -10,6 +10,20 @@
         <a class="item" href="#/drinks/add" data-navigo>Add</a>
       </div>
     </div>
+    {{#if user}}
+      <a class="item item-user">
+        <div class="header">
+          <img src={{gravatarSrc}} class="ui avatar left floated image">
+          {{user.firstName}} {{user.lastName}} <br>
+          <span class="small emphasis text-subtle">
+            {{user.email}}
+          </span>
+        </div>
+      </a>
+      <div class="ui fluid popup transition">
+        <a onclick={{action onLogout}}>Logout</a>
+      </div>
+    {{/if}}
   </div>
   <div class="main-wrapper ui-push-left">
     <div class="ui grid">

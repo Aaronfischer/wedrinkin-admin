@@ -34,8 +34,7 @@ export default class Login extends Component {
             }
             this.reset();
             console.log('JSON', json.user);
-            setAuthorization(json.user.token);
-            // localStorage.wedrinkinJWT = json.token;
+            setAuthorization(json.user);
             return router.navigate(`/drinks`);
           });
         }, (error) => { throw error; });

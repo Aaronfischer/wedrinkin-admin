@@ -1,5 +1,7 @@
 import Component, { tracked } from '@glimmer/component';
 import Navigo from 'navigo';
+import { setAuthorization } from '../../../utils/fetch-wrapper';
+import gravatarUrl from 'gravatar-url';
 
 const root = null;
 const useHash = true;
@@ -9,6 +11,7 @@ export default class WedrinkinAdminGlimmer extends Component {
   @tracked routeName: any;
   @tracked params: any;
   @tracked query: any;
+  user: {};
 
   constructor(options) {
     super(options);
@@ -24,5 +27,34 @@ export default class WedrinkinAdminGlimmer extends Component {
       }).resolve();
 
     console.log('routeName', this.routeName);
+
+    if (localStorage.getItem('wedrinkinUser')) {
+      this.user = JSON.parse(localStorage.getItem('wedrinkinUser'));
+      console.log('this.user', this.user);
+    }
   }
+
+  didInsertElement() {
+    console.log('didInsertElement');
+    $('.item-user').popup({
+      inline: true,
+      position: 'right center',
+      on: 'click',
+    });
+    console.log('popup load');
+  }
+
+  onLogout(e) {
+    console.log('e', e);
+    setAuthorization();
+    router.navigate(`/login`);
+  }
+
+  // @tracked
+  // get gravatarSrc() {
+  //   const user = this.user;
+  //   console.log('gravatarSrc user', user);
+  //   console.log('gravatarUrl', gravatarUrl);
+  //   return gravatarUrl(user.email);
+  // }
 }

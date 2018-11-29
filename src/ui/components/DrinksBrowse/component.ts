@@ -16,6 +16,5 @@ export default class DrinksBrowse extends Component {
     });
     let json = await request.json();
     this.drinks = json.drinks;
-    console.log('this.drinks', this.drinks);
   }
 }
