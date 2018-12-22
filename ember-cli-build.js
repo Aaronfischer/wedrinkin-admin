@@ -24,6 +24,7 @@ class CustomApp extends GlimmerApp {
 
 module.exports = function(defaults) {
   let app = new CustomApp(defaults, {
+    storeConfigInMeta: true,
     sassOptions: {
       includePaths: [
         'node_modules'
