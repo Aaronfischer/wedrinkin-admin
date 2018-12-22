@@ -11,7 +11,7 @@ export default class WedrinkinAdminGlimmer extends Component {
   @tracked routeName: any;
   @tracked params: any;
   @tracked query: any;
-  user: {};
+  @tracked user: {};
 
   constructor(options) {
     super(options);
@@ -30,34 +30,25 @@ export default class WedrinkinAdminGlimmer extends Component {
 
     if (localStorage.getItem('wedrinkinUser')) {
       this.setUser();
+    } else {
+      this.onLogout();
     }
-  }
-
-  didInsertElement() {
-    this.setupPopup();
   }
 
   onLogout() {
     setAuthorization();
+    this.isAuthenticated = false;
     router.navigate(`/login`);
   }
 
   setupUser(user) {
     setAuthorization(user);
     this.setUser();
-    this.setupPopup();
   }
 
   setUser() {
     this.user = JSON.parse(localStorage.getItem('wedrinkinUser'));
-  }
-
-  setupPopup() {
-    $('.item-user').popup({
-      inline: true,
-      position: 'right center',
-      on: 'click',
-    });
+    this.isAuthenticated = true;
   }
 
   // @tracked
@@ -67,4 +58,7 @@ export default class WedrinkinAdminGlimmer extends Component {
   //   console.log('gravatarUrl', gravatarUrl);
   //   return gravatarUrl(user.email);
   // }
+
+  @tracked
+  isAuthenticated : boolean = false;
 }

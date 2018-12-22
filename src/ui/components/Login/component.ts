@@ -39,6 +39,7 @@ export default class Login extends Component {
           });
         }, (error) => { throw error; });
       } catch(error) {
+        console.log('error', error);
         this.reset();
         this.isFailure = true;
         // this.errors = error.errors;
