@@ -54,6 +54,7 @@ export default class DrinksAdd extends Component {
             }
             this.reset();
             this.isSuccess = true;
+            this.state = json.drinks;
             router.pause();
             router.navigate(`/drinks/${json.drinks._id}/edit`);
             return router.resume();

@@ -60,6 +60,7 @@ export default class DrinksEdit extends Component {
             }
             this.reset();
             this.isSuccess = true;
+            this.state = json.drinks;
             return json;
           });
         }, (error) => { throw error; });

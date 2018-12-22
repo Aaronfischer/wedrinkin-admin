@@ -30,34 +30,34 @@ export default class WedrinkinAdminGlimmer extends Component {
 
     if (localStorage.getItem('wedrinkinUser')) {
       this.setUser();
-      console.log('this.user', this.user);
     }
   }
 
   didInsertElement() {
-    console.log('didInsertElement');
-    $('.item-user').popup({
-      inline: true,
-      position: 'right center',
-      on: 'click',
-    });
-    console.log('popup load');
+    this.setupPopup();
   }
 
-  onLogout(e) {
-    console.log('e', e);
+  onLogout() {
     setAuthorization();
     router.navigate(`/login`);
   }
 
   setupUser(user) {
-    console.log('setupUser', user);
     setAuthorization(user);
     this.setUser();
+    this.setupPopup();
   }
 
   setUser() {
     this.user = JSON.parse(localStorage.getItem('wedrinkinUser'));
+  }
+
+  setupPopup() {
+    $('.item-user').popup({
+      inline: true,
+      position: 'right center',
+      on: 'click',
+    });
   }
 
   // @tracked
