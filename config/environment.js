@@ -15,7 +15,8 @@ module.exports = function(environment) {
       ENV.host = 'https://gallant-colden-005516.netlify.com';
       break;
     default:
-      ENV.host = '//localhost:8080';
+      // ENV.host = '//localhost:8080';
+      ENV.host = '//localhost:9000/.netlify/functions';
   };
 
   return ENV;

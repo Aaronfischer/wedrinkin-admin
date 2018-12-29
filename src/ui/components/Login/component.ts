@@ -1,5 +1,6 @@
 import Component, { tracked } from '@glimmer/component';
 import { router } from '../WedrinkinAdminGlimmer/component';
+import config from '../../../../config/environment';
 
 export default class Login extends Component {
   @tracked isSuccess: boolean = false;
@@ -19,7 +20,7 @@ export default class Login extends Component {
     // if (Object.keys(this.errors).length === 0) {
       this.isLoading = true;
       try {
-        await fetch('//localhost:8080/api/auth', {
+        await fetch(`${config.host}/api/auth`, {
           method: 'POST',
           credentials: 'same-origin',
           headers: {
