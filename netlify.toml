@@ -1,5 +1,3 @@
 [build]
-  # This is the directory is publishing to netlify's CDN
-  publish = "build"
   # functions build directory
   functions = "functions-build"
