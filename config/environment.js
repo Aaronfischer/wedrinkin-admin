@@ -12,7 +12,7 @@ module.exports = function(environment) {
       ENV.host = '';
       break;
     case 'production':
-      ENV.host = 'https://gallant-colden-005516.netlify.com';
+      ENV.host = 'https://gallant-colden-005516.netlify.com/.netlify/functions';
       break;
     default:
       // ENV.host = '//localhost:8080';
