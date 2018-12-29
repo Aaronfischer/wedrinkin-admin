@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "build": "npm-run-all --parallel build:**",
+    "build": "npm-run-all --parallel build:app build:functions",
     "start": "npm-run-all --parallel start:app start:server",
     "start:app": "ember server",
     "start:server": "netlify-lambda serve functions",
