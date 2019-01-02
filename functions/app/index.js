@@ -102,7 +102,7 @@ export default function expressApp(functionName) {
     });
   });
 
-  router.use(authenticate);
+  // router.use(authenticate);
 
   router.get('/drinks', (req, res) => {
     Drink.find().then(drinks => {
