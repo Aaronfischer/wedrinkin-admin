@@ -6,7 +6,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
 import User from '../models/User';
-import authenticate from '../middlewares/authenticate';
+// import authenticate from '../middlewares/authenticate';
 import Drink from '../models/Drink';
 import parseErrors from '../utils/parseErrors';
 

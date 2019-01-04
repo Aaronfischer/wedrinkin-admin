@@ -33,6 +33,8 @@ export default class WedrinkinAdminGlimmer extends Component {
     } else {
       this.onLogout();
     }
+
+    window.netlifyIdentity.init();
   }
 
   onLogout() {

@@ -13,7 +13,8 @@ class CustomApp extends GlimmerApp {
     let vendorScripts = new Concat('node_modules', {
       inputFiles: [
         'jquery/dist/jquery.min.js',
-        'semantic-ui-css/semantic.min.js'
+        'semantic-ui-css/semantic.min.js',
+        'netlify-identity-widget/build/netlify-identity-widget.js'
       ],
       outputFile: 'vendor.js',
     });
